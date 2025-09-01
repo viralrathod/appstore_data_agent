@@ -1,0 +1,23 @@
+[project]
+name = "appstore_data_agent"
+version = "0.1.0"
+description = "appstore_data_agent using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]>=0.175.0,<1.0.0"
+]
+
+[project.scripts]
+appstore_data_agent = "appstore_data_agent.main:run"
+run_crew = "appstore_data_agent.main:run"
+train = "appstore_data_agent.main:train"
+replay = "appstore_data_agent.main:replay"
+test = "appstore_data_agent.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
