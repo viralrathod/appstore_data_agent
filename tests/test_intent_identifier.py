@@ -31,7 +31,7 @@ def test_run_successful_identification(mock_ollama_chat):
 
     mock_ollama_chat.assert_called_once_with(
         model='llama2',
-        messages=[{'role': 'user', 'content': "Given the indicative game developer name \"Nintenddo\", what is the most likely full and correct game developer name as it appears on the Apple App Store? Only return the full name, without any other text. If no clear match is found, return 'N/A'."}]
+        messages=[{'role': 'user', 'content': "Given the indicative game developer name \"Nintenddo\", what is the most likely full and correct game developer name as it appears on the Apple App Store? Only return the full name, without any other text. If no clear match is found, return 'N/A'. I repeat only return the full name and no other text. Example: Given the indicative game developer name \"Nintenddo\", the full and correct game developer name is \"Nintendo Co., Ltd.\""}]
     )
     assert result == "Nintendo Co., Ltd."
 

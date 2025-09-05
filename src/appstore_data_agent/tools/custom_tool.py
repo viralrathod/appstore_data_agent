@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-from crewai.tools import BaseTool, FileWriterTool
+from crewai.tools import BaseTool
 from typing import Type
 from pydantic import BaseModel, Field
 
@@ -34,10 +34,9 @@ def scrape_game_details(game_url):
 
         # Game Name
         game_name_tag = soup.find('h1', class_='product-header__title')
-        if game_name_tag:
+        if game_name_tag and game_name_tag is not None:
             game_details["Game Name"] = game_name_tag.get_text(strip=True)
-
-        print("Processing game: " +game_name_tag.get_text(strip=True))
+            print("Processing game: " +game_name_tag.get_text(strip=True))
         
         # Developer Name
         developer_tag = soup.find('h2', class_='product-header__identity app-header__identity')
@@ -50,27 +49,33 @@ def scrape_game_details(game_url):
         ratings_tag = soup.find('span', class_='we-customer-ratings__averages__display')
         if ratings_tag:
             game_details["Ratings"] = ratings_tag.get_text(strip=True)
+            # print(f"Ratings: " + ratings_tag.get_text(strip=True))
 
         # Info section begins
-        info_divs = soup.find('section', class_='l-content-width section section--bordered section--information').find('dl', class_='information-list information-list--app medium-columns l-row').find_all('div', class_='information-list__item l-column small-12 medium-6 large-4 small-valign-top')
-
-        for div_item in info_divs:
-            if "Size" in div_item.getText(strip=True):
-                size_val = div_item.getText(strip=True)
-                size_val = size_val[4:]
-                game_details["Size"] = size_val
-            if "Age Rating" in div_item.getText(strip=True):
-                age_rating_val = div_item.getText(strip=True)
-                age_rating_val = age_rating_val[10:12]
-                game_details["Age Limit"] = age_rating_val
-            if "Price" in div_item.getText(strip=True):
-                price_val = div_item.getText(strip=True)
-                price_val = price_val[5:]
-                game_details["Price"] = price_val
+        info_section = soup.find('section', class_='l-content-width section section--bordered section--information')
+        if info_section:
+            info_list_dl = info_section.find('dl', class_='information-list information-list--app medium-columns l-row')
+            if info_list_dl:
+                info_divs = info_list_dl.find_all('div', class_='information-list__item l-column small-12 medium-6 large-4 small-valign-top')
+                for div_item in info_divs:
+                    text = div_item.get_text(strip=True)
+                    if "Size" in text:
+                        size_val = text[4:]
+                        game_details["Size"] = size_val
+                        # print(f"Size: " + size_val)
+                    if "Age Rating" in text:
+                        age_rating_val = text[10:12]
+                        game_details["Age Limit"] = age_rating_val
+                        # print(f"Age Limit: " + age_rating_val)
+                    if "Price" in text:
+                        price_val = text[5:]
+                        game_details["Price"] = price_val
+                        # print(f"Price: " + price_val)
         # Genre
         genre_tag = soup.find('span', class_='information-list__item__definition')
         if genre_tag:
             game_details["Genre"] = genre_tag.get_text(strip=True)
+            # print(f"Genre: " + genre_tag.get_text(strip=True))
 
         # Game Center functionality (Achievement, Leaderboard)
         supports_section = soup.find('div', class_='supports-list__item__copy')
@@ -78,10 +83,13 @@ def scrape_game_details(game_url):
             support_text = supports_section.get_text().lower()
             if "Game Center" in support_text or "leaderboards" in support_text or "achievements" in support_text:
                 game_details["Game Center Integ"] = "Yes"
+                # print(f"Game Center Integ: Yes")
             if "achievements" in support_text:
                 game_details["Achievement"] = "Yes"
+                # print(f"Achievement: Yes")
             if "leaderboards" in support_text:
                 game_details["Leaderboard"] = "Yes"
+                # print(f"Leaderboard: Yes")
 
     except requests.exceptions.RequestException as e:
         print(f"Error fetching game details for {game_url}: {e}")
@@ -121,6 +129,7 @@ class GameAppInfoScraperTool(BaseTool):
             app_developer_filter = app_developer
             print(f"Filtering by app developer: {app_developer_filter}")
 
+        # print(f"Seed game URL: {seed_game_url}")
         if seed_game_url:
             game_urls.append(seed_game_url)
             print(f"Starting with seed game URL: {seed_game_url}")
@@ -180,9 +189,10 @@ class GameAppInfoScraperTool(BaseTool):
         top_free_games_data = []
         top_paid_games_data = []
 
-        print(f"Found {len(game_urls)} game URLs.")
+        print(f"Found {len(game_urls)} game URLs. ")
         
         for url in game_urls:
+            # print(f"Scraping game URL: {url}")
             details, _ = scrape_game_details(url)
             if details:
                 scraped_games_data.append(details)

@@ -200,7 +200,7 @@ dependencies = [
 requires-dist = [
     { name = "argparse", specifier = ">=1.4.0" },
     { name = "bs4", specifier = ">=0.0.2" },
-    { name = "crewai", extras = ["tools"], specifier = ">=0.175.0,<1.0.0" },
+    { name = "crewai", extras = ["tools"], specifier = ">=0.177.0" },
     { name = "ollama", specifier = ">=0.5.3" },
     { name = "pytest", specifier = ">=8.4.1" },
     { name = "requests", specifier = ">=2.32.5" },
@@ -637,7 +637,7 @@ wheels = [
 
 [[package]]
 name = "crewai"
-version = "0.175.0"
+version = "0.177.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "appdirs" },
@@ -667,9 +667,9 @@ dependencies = [
     { name = "tomli-w" },
     { name = "uv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a8/21/1f549b409d0ee77b54cde03a69d935bbe6d9edaedb9d5fe461a90cd76c1b/crewai-0.175.0.tar.gz", hash = "sha256:f8c1a5464a366aaefa24b2b1a2b9ac4c2bb66104b7d166b9202e9df4b73db087", size = 6549349, upload-time = "2025-08-28T02:33:07.052Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8a/fa/fb7a7f78e71704da4870d54ff33bfdf4bb92f1fca9b6a20311431d4baa60/crewai-0.177.0.tar.gz", hash = "sha256:cd34f024881afa163894793e51875a45b02a06f82b342785515455a2e48bb2c0", size = 6552439, upload-time = "2025-09-04T00:27:01.277Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/dc/77/ce6c6f013d4be3ae7b22a6c15a1adf460c2c4ca379ea96b84e81b3b5b7a0/crewai-0.175.0-py3-none-any.whl", hash = "sha256:e2cc92b423c226cfa1c4c45ac4881f2a4f8d9d16ae75fe09a6bad8d2dbeb13f6", size = 413752, upload-time = "2025-08-28T02:33:05.443Z" },
+    { url = "https://files.pythonhosted.org/packages/cd/65/7f9d2ee674fd517126668f240d02656bbae2c5e307ec2ed5fd9a32f1bb89/crewai-0.177.0-py3-none-any.whl", hash = "sha256:4718335f0c8236ef42740166fe86f9636a9cf628eeea87205d85599ed1b771b4", size = 418731, upload-time = "2025-09-04T00:26:59.34Z" },
 ]
 
 [package.optional-dependencies]
@@ -679,7 +679,7 @@ tools = [
 
 [[package]]
 name = "crewai-tools"
-version = "0.65.0"
+version = "0.69.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "chromadb" },
@@ -697,9 +697,9 @@ dependencies = [
     { name = "stagehand" },
     { name = "tiktoken" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/67/ee/43b79458fd84847d091d15b06c3a0e6c4d1dfff9e0ca9dcfbd8ed11a57bd/crewai_tools-0.65.0.tar.gz", hash = "sha256:a3fdb1f8bc819602718beb9aaf8b0c8b8e2dfde5eefe717b2fc0fedb6b9cd35a", size = 1082962, upload-time = "2025-08-27T23:11:37.465Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/87/dc/44b83b389c14fee250e822987145dcbad7a4429677a9db450154da7ac99f/crewai_tools-0.69.0.tar.gz", hash = "sha256:cb0baefde691735ce7e142ef7894d21a44b333f21fc4f01b65c27f6ed75fad44", size = 1097437, upload-time = "2025-09-03T22:50:02.302Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d0/c3/973d960a20bfd190236f7fa8e73172555125256326783ce64e8fda8e2966/crewai_tools-0.65.0-py3-none-any.whl", hash = "sha256:5ace69a94654fde408a30fc439ca46747efce52ef201f26f1ba44394a3d58ddf", size = 701309, upload-time = "2025-08-27T23:11:35.641Z" },
+    { url = "https://files.pythonhosted.org/packages/5e/56/704d2850a1609b8776f706931d89207544531429d617ab14c5147fe3e388/crewai_tools-0.69.0-py3-none-any.whl", hash = "sha256:6e42c4b549ce1fd7075f3df108517880e3e31eb03b91336031c5a9f1d55410ca", size = 714547, upload-time = "2025-09-03T22:50:00.581Z" },
 ]
 
 [[package]]
