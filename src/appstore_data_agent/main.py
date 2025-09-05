@@ -18,8 +18,8 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'app_developer': 'Nintendo Co., Ltd.',
+        'seed_game_url': 'https://apps.apple.com/us/app/super-mario-run/id1145275343'
     }
     
     try:
