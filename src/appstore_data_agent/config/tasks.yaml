@@ -1,17 +1,31 @@
-research_task:
+identify_developer_name:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    Given the indicative developer name '{indicative_developer_name}', identify the full and correct name as it appears on the Apple App Store.
+    For example, if the input is "Nintenddo", the output should be "Nintendo Co., Ltd.".
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
+    A string representing the full and correct game developer name on the Apple App Store, or "N/A" if not found.
+  agent: researcher
+
+find_developer_url:
+  description: >
+    Given the full and correct game developer name, find an Game Developer Apple App Store URL.
+    This URL will be used for the game information scraping task.
+  expected_output: >
+    A string representing an Apple App Store URL for the identified developer, or "N/A" if no URL is found.
+  agent: researcher
+
+scrape_game_info:
+  description: >
+    Given the full and correct game developer name AND an App Store URL the game developer, scrape all available game application information from the Apple App Store.
+    Generate just one CSV file: `game_center_games.csv` (all games including free to play as well as paid).
+  expected_output: >
+    A string indicating the success or failure of scraping and CSV file creation, including the name of the generated CSV file.
   agent: researcher
 
 reporting_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Review the scraped game data from the generated CSV file (game_center_games.csv) and generate a comprehensive report.
+    The report should include an overview of the developer's games, key metrics (ratings, size, price, genre), and Game Center integration details (achievements, leaderboards).
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
+    A fully fledged report in markdown format (`report.md`) with the main topics, each with a full section of information, based on the analysis of the CSV files. Do not use '```' in the report.
   agent: reporting_analyst

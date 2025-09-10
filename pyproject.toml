@@ -8,7 +8,9 @@ dependencies = [
     "argparse>=1.4.0",
     "bs4>=0.0.2",
     "crewai[tools]>=0.177.0",
+    "googlesearch-python>=1.2.0",
     "ollama>=0.5.3",
+    "pandas>=2.2.0",
     "pytest>=8.4.1",
     "requests>=2.32.5",
 ]

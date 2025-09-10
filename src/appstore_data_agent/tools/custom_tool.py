@@ -107,12 +107,13 @@ def write_to_csv(csv_file_name, games_data):
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(games_data)
-
+    csvfile.flush
+    return csvfile.name
 
 class GameAppInfoScraperToolInput(BaseModel):
     """Input schema for GameAppInfoScraperToolInput."""
     app_developer: str = Field(..., description="Description of the argument")
-    seed_game_url: str = Field(..., description="Description of the argument")
+    seed_developer_url: str = Field(..., description="Description of the argument")
 
 class GameAppInfoScraperTool(BaseTool):
     name: str = "Games App Info Scraper for App Store"
@@ -121,56 +122,36 @@ class GameAppInfoScraperTool(BaseTool):
     )
     args_schema: Type[BaseModel] = GameAppInfoScraperToolInput
 
-    def _run(self, app_developer: str, seed_game_url: str) -> str:
+    def _run(self, app_developer: str, seed_developer_url: str) -> str:
         game_urls = []
-        app_developer_filter = None
+        app_developer_filter = app_developer if app_developer else None
 
-        if app_developer:
-            app_developer_filter = app_developer
+        if app_developer_filter and seed_developer_url:
             print(f"Filtering by app developer: {app_developer_filter}")
 
-        # print(f"Seed game URL: {seed_game_url}")
-        if seed_game_url:
-            game_urls.append(seed_game_url)
-            print(f"Starting with seed game URL: {seed_game_url}")
+            developer_store_url = seed_developer_url
+            print(f"Attempting to scrape developer page: {developer_store_url}")
+            try:
+                dev_response = requests.get(developer_store_url)
+                dev_response.raise_for_status()
+                dev_soup = BeautifulSoup(dev_response.text, 'html.parser')
+                
+                dev_game_links_section = dev_soup.find('section', class_='l-content-width section section--bordered')
+                # print(dev_game_links_section.get_text(strip=True))
+                if dev_game_links_section:
+                    dev_game_links = dev_game_links_section.find_all('a')
 
-            seed_game_details, seed_developer_url = scrape_game_details(seed_game_url)
-            if not seed_game_details:
-                return "Error: Could not retrieve details for the seed game URL."
+                    total_dev_links = len(dev_game_links)
+                    print(f"Total Games found on {developer_store_url} Dev page is {total_dev_links}")
+                    for link in dev_game_links:
+                        print(f"Collecting link: {link}")
+                        if link.get('href') and "/app/" in link.get('href'):
+                            game_urls.append(link.get('href'))
+            except requests.exceptions.RequestException as e:
+                print(f"Error fetching developer page {developer_store_url}: {e}")
 
-            seed_developer_name = seed_game_details["Developer Name"]
-            if app_developer_filter and seed_developer_name != app_developer_filter:
-                return f"Error: Seed game developer '{seed_developer_name}' does not match specified app developer '{app_developer_filter}'."
-            
-            if not app_developer_filter:
-                app_developer_filter = seed_developer_name
-                print(f"No app developer specified. Using developer from seed game: {seed_developer_name}")
 
-            if seed_developer_url:
-                developer_store_url = seed_developer_url
-                print(f"Attempting to scrape developer page: {developer_store_url}")
-                try:
-                    dev_response = requests.get(developer_store_url)
-                    dev_response.raise_for_status()
-                    dev_soup = BeautifulSoup(dev_response.text, 'html.parser')
-                    
-                    dev_game_links_section = dev_soup.find('section', class_='l-content-width section section--bordered')
-                    if dev_game_links_section:
-                        dev_game_links = dev_game_links_section.find_all('a')
-
-                        total_dev_links = len(dev_game_links)
-                        print(f"Total Games found on {developer_store_url} Dev page is {total_dev_links}")
-                        for link in dev_game_links:
-                            print(f"Collecting link: {link}")
-                            if link.get('href') and "/app/" in link.get('href'):
-                                game_urls.append(link.get('href'))
-                except requests.exceptions.RequestException as e:
-                    print(f"Error fetching developer page {developer_store_url}: {e}")
-        
-        if not app_developer_filter:
-            return "Error: No app developer specified via app_developer or derived from seed_game_url."
-
-        if not seed_game_url or not game_urls: 
+        if not app_developer_filter or not seed_developer_url:
             print("App Developer URL did not seem to work... Here's a sample report for Top Free and Paid Games")
             try:
                 response = requests.get(APP_STORE_URL)
@@ -183,6 +164,7 @@ class GameAppInfoScraperTool(BaseTool):
                         game_urls.append(link.get('href'))
             except requests.exceptions.RequestException as e:
                 print(f"Error fetching the main App Store page: {e}")
+                return f"Scraping error. No data to write. Error fetching the main App Store page: {e}"
 
         game_urls = list(set(game_urls))
         scraped_games_data = []
@@ -192,7 +174,7 @@ class GameAppInfoScraperTool(BaseTool):
         print(f"Found {len(game_urls)} game URLs. ")
         
         for url in game_urls:
-            # print(f"Scraping game URL: {url}")
+            print(f"Scraping game URL: {url}")
             details, _ = scrape_game_details(url)
             if details:
                 scraped_games_data.append(details)
@@ -203,21 +185,11 @@ class GameAppInfoScraperTool(BaseTool):
 
         # Write to CSV
         if scraped_games_data and len(scraped_games_data) > 0:
-            write_to_csv(OUTPUT_CSV_FILE, scraped_games_data)
-            print(f"Successfully wrote {len(scraped_games_data)} games to {OUTPUT_CSV_FILE}")
+            output_file_name = OUTPUT_CSV_FILE + app_developer_filter
+            output_file_path = write_to_csv(output_file_name, scraped_games_data)
+            print(f"Successfully wrote {len(scraped_games_data)} games to {output_file_path}")
         else:
             print("No game data to write to main CSV.")
+            return f"Scraping complete. No data to write."
 
-        if top_free_games_data and len(top_free_games_data) > 0:
-            write_to_csv(SCRAPED_FREE_GAMES_FILE, top_free_games_data)
-            print(f"Successfully wrote {len(top_free_games_data)} games to {SCRAPED_FREE_GAMES_FILE}")
-        else:
-            print("No free game data to write.")
-
-        if top_paid_games_data and len(top_paid_games_data) > 0:
-            write_to_csv(SCRAPED_PAID_GAMES_FILE, top_paid_games_data)
-            print(f"Successfully wrote {len(top_paid_games_data)} games to {SCRAPED_PAID_GAMES_FILE}")
-        else:
-            print("No paid game data to write.")
-
-        return f"Scraping complete. Data written to {OUTPUT_CSV_FILE}, {SCRAPED_FREE_GAMES_FILE}, and {SCRAPED_PAID_GAMES_FILE}."
+        return f"Scraping complete. Data written to {output_file_path}."

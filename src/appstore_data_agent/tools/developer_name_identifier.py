@@ -19,6 +19,7 @@ class DeveloperNameIdentifierTool(BaseTool):
         try:
             response = ollama.chat(model='llama2', messages=[{'role': 'user', 'content': prompt}])
             developer_name = response['message']['content'].strip()
+            print(f"Developer name extracted: {developer_name}")
             return developer_name
         except Exception as e:
             return f"Error identifying developer name: {e}"

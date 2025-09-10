@@ -18,51 +18,12 @@ def run():
     Run the crew.
     """
     inputs = {
-        'app_developer': 'Nintendo Co., Ltd.',
-        'seed_game_url': 'https://apps.apple.com/us/app/super-mario-run/id1145275343'
+        'indicative_developer_name': 'Sybo',
+        'csv_file_path': 'game_center_games.csv',
+        'topic': 'Analyze the scraped data and provide a report on the games'
     }
     
     try:
         AppstoreDataAgent().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
-
-
-def train():
-    """
-    Train the crew for a given number of iterations.
-    """
-    inputs = {
-        "topic": "AI LLMs",
-        'current_year': str(datetime.now().year)
-    }
-    try:
-        AppstoreDataAgent().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
-
-    except Exception as e:
-        raise Exception(f"An error occurred while training the crew: {e}")
-
-def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
-    try:
-        AppstoreDataAgent().crew().replay(task_id=sys.argv[1])
-
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
-
-def test():
-    """
-    Test the crew execution and returns the results.
-    """
-    inputs = {
-        "topic": "AI LLMs",
-        "current_year": str(datetime.now().year)
-    }
-    
-    try:
-        AppstoreDataAgent().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
-
-    except Exception as e:
-        raise Exception(f"An error occurred while testing the crew: {e}")
