@@ -50,13 +50,13 @@ After installing your project in editable mode using `uv pip install -e .`, you 
 To run all tests:
 
 ```bash
-pytest
+uv run pytest
 ```
 
 To run a specific test file (e.g., `tests/test_custom_tool.py`):
 
 ```bash
-pytest tests/test_custom_tool.py
+uv run pytest tests/test_custom_tool.py
 ```
 
 ## Understanding Your Crew
@@ -77,7 +77,7 @@ If you are not using `uv` or still encounter issues, you might need to temporari
 
 ```bash
 export PYTHONPATH=$PWD:$PYTHONPATH
-pytest tests/test_intent_identifier.py
+uv run pytest tests/test_intent_identifier.py
 ```
 
 Alternatively, you can add it for a single command:
