@@ -4,6 +4,10 @@ import csv
 from crewai.tools import BaseTool
 from typing import Type
 from pydantic import BaseModel, Field
+from src.appstore_data_agent.tools.developer_url_finder import (
+    # DeveloperGameURLFinderInput,
+    DeveloperURLFinderTool
+)
 
 # Base URL for the App Store's top free games story
 APP_STORE_URL = "https://apps.apple.com/us/story/id1302444839"
@@ -126,6 +130,16 @@ class GameAppInfoScraperTool(BaseTool):
         game_urls = []
         app_developer_filter = app_developer if app_developer else None
 
+        if 'N/A' in seed_developer_url:
+            # input_data = DeveloperGameURLFinderInput(developer_name=app_developer_filter)
+            tool = DeveloperURLFinderTool()
+            result = tool._run(developer_name=app_developer_filter)
+            print(f'===========Game Develoer URL found: {result}===========')
+            if 'apps.apple.com' in result:
+                seed_developer_url = result
+            else:
+                seed_developer_url = None
+
         if app_developer_filter and seed_developer_url:
             print(f"Filtering by app developer: {app_developer_filter}")
 
@@ -185,7 +199,8 @@ class GameAppInfoScraperTool(BaseTool):
 
         # Write to CSV
         if scraped_games_data and len(scraped_games_data) > 0:
-            output_file_name = OUTPUT_CSV_FILE + app_developer_filter
+            output_file_path = write_to_csv(OUTPUT_CSV_FILE, scraped_games_data)
+            output_file_name = app_developer_filter + '_' +OUTPUT_CSV_FILE
             output_file_path = write_to_csv(output_file_name, scraped_games_data)
             print(f"Successfully wrote {len(scraped_games_data)} games to {output_file_path}")
         else:

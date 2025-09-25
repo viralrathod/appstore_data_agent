@@ -1,7 +1,7 @@
 identify_developer_name:
   description: >
-    Given the indicative developer name '{indicative_developer_name}', identify the full and correct name as it appears on the Apple App Store.
-    For example, if the input is "Nintenddo", the output should be "Nintendo Co., Ltd.".
+    Given the indicative developer name '{indicative_developer_name}', identify the full and correct name as it appears on the Apple App Store webpages.
+    For example, if the input is "Nintenddo", the output should be "Nintendo Co., Ltd." as seen on the App Store page.
   expected_output: >
     A string representing the full and correct game developer name on the Apple App Store, or "N/A" if not found.
   agent: researcher
