@@ -1,0 +1,106 @@
+{
+    "developer_name": "Voodoo",
+    "note": "Voodoo has published hundreds of games. This list includes a selection of their most popular and representative titles. All are universally Free-to-Play with In-App Purchases (IAP).",
+    "games": [
+      {
+        "game_name": "Hole.io",
+        "app_store_url": "https://apps.apple.com/us/app/hole-io/id1388523955",
+        "rating_score": "4.5",
+        "number_of_ratings": "78.4K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases from $2.99 - $29.99)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (Common for '.io' games)",
+          "achievements": "Likely (Standard for Voodoo's major releases, but not always explicitly listed)"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "Infrequent/Mild Profanity or Crude Humor (Due to user-generated names/chat in similar .io titles)"
+        }
+      },
+      {
+        "game_name": "Helix Jump",
+        "app_store_url": "https://apps.apple.com/us/app/helix-jump/id1324706505",
+        "rating_score": "4.6",
+        "number_of_ratings": "377.6K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases, e.g., 'No Ads' option)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (High score tracking is core to this genre)",
+          "achievements": "Likely (Standard integration for high-score tracking)"
+        },
+        "content_description": {
+          "apple_age_rating": "4+",
+          "violence": "None",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "None"
+        }
+      },
+      {
+        "game_name": "Mob Control",
+        "app_store_url": "https://apps.apple.com/us/app/mob-control/id1571404107",
+        "rating_score": "4.8",
+        "number_of_ratings": "129.8K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases from $0.99 - $99.99)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Likely (The game features competitive ranking/leagues)",
+          "achievements": "Likely"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence (Simplified combat)",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "None"
+        }
+      },
+      {
+        "game_name": "Paper.io 2",
+        "app_store_url": "https://apps.apple.com/us/app/paper-io-2/id1453472019",
+        "rating_score": "4.5",
+        "number_of_ratings": "61.3K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (The core mechanic involves territory ranking)",
+          "achievements": "Likely"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence (Simple 'cutting' and 'dying' mechanics)",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "None"
+        }
+      },
+      {
+        "game_name": "Crowd City",
+        "app_store_url": "https://apps.apple.com/us/app/crowd-city/id1444062497",
+        "rating_score": "4.7",
+        "number_of_ratings": "21.6K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases from $2.99 - $99.99)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (Competitive crowd size ranking)",
+          "achievements": "Likely"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "None"
+        }
+      }
+    ]
+  }

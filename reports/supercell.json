@@ -1,0 +1,66 @@
+{
+    "developer_name": "Supercell",
+    "note": "Supercell's games are all Free-to-Play, rely heavily on in-app purchases (ranging from $0.99 to $99.99), and feature social/multiplayer interaction, which is a common focus for their parental safety guides.",
+    "games": [
+      {
+        "game_name": "Clash of Clans",
+        "app_store_url": "https://apps.apple.com/us/app/clash-of-clans/id529479190",
+        "rating_score": "4.8",
+        "number_of_ratings": "Over 2.7 Million",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases from $0.99 - $99.99)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (Features extensive in-game leaderboards and integrates with Apple Game Center)",
+          "achievements": "Yes (Integrated with Apple Game Center Achievements)"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence (Battles are depicted with cartoon troops, explosions, and fantasy weapons. There is no blood or gore.)",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "Infrequent/Mild Profanity or Crude Humor (through user-generated content in clan chat), Unrestricted Web Access (via links to support/social media), and Gambling elements (via chests or 'random rewards')."
+        }
+      },
+      {
+        "game_name": "Clash Royale",
+        "app_store_url": "https://apps.apple.com/us/app/clash-royale/id1053012308",
+        "rating_score": "4.6",
+        "number_of_ratings": "Over 1.5 Million (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (Features extensive in-game leaderboards and integrates with Apple Game Center)",
+          "achievements": "Yes (Integrated with Apple Game Center Achievements)"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence (Fast-paced card battle game with cartoon combat.)",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "Infrequent/Mild Profanity or Crude Humor, Gambling elements (due to 'loot boxes' and randomized rewards), and Unrestricted Web Access."
+        }
+      },
+      {
+        "game_name": "Brawl Stars",
+        "app_store_url": "https://apps.apple.com/us/app/brawl-stars/id1229016807",
+        "rating_score": "4.2",
+        "number_of_ratings": "1.3 Million (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (Features extensive in-game leaderboards and integrates with Apple Game Center)",
+          "achievements": "Yes (Integrated with Apple Game Center Achievements)"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence (A 3v3 action game with no gore, focused on defeating cartoon-style opponents.)",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "Infrequent/Mild Profanity or Crude Humor, Gambling elements (randomized item drops/rewards), and Unrestricted Web Access."
+        }
+      }
+    ]
+  }

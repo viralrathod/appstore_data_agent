@@ -1,0 +1,66 @@
+{
+    "developer_name": "Miniclip S.A.",
+    "note": "Miniclip's titles are almost universally Free-to-Play, rely heavily on in-app purchases and advertisements, and feature simulated gambling mechanics (betting in-game currency on match outcomes) that often lead to higher age classifications in some jurisdictions.",
+    "games": [
+      {
+        "game_name": "8 Ball Pool™",
+        "app_store_url": "https://apps.apple.com/us/app/8-ball-pool/id543186831",
+        "rating_score": "4.8",
+        "number_of_ratings": "Over 1 Million (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases from $0.99 - $129.99)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (Integrated with Apple Game Center for leaderboards and achievements)",
+          "achievements": "Yes (Integrated with Apple Game Center Achievements)"
+        },
+        "content_description": {
+          "apple_age_rating": "4+",
+          "violence": "None",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "Frequent/Intense Simulated Gambling (Players bet virtual currency to enter matches and win their opponent's stake. Some in-game 'Mini Games' like Spin/Scratch also mimic casino games.)"
+        }
+      },
+      {
+        "game_name": "Agar.io",
+        "app_store_url": "https://apps.apple.com/us/app/agar-io/id996576624",
+        "rating_score": "4.6",
+        "number_of_ratings": "61.3K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (The core gameplay revolves around a real-time leaderboard, and it integrates with Game Center)",
+          "achievements": "Yes (Integrated with Apple Game Center Achievements)"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence (The core mechanic is one cell consuming a smaller cell.)",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "Unrestricted web-based content (User-created cell names/skins can sometimes contain inappropriate language/images, which contributes to the 9+ rating.)"
+        }
+      },
+      {
+        "game_name": "Carrom Pool: Disc Game",
+        "app_store_url": "https://apps.apple.com/us/app/carrom-pool-disc-game/id1451528659",
+        "rating_score": "4.6",
+        "number_of_ratings": "7.2K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (Integrated with Apple Game Center)",
+          "achievements": "Yes (Integrated with Apple Game Center Achievements)"
+        },
+        "content_description": {
+          "apple_age_rating": "4+",
+          "violence": "None",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "Infrequent/Mild Simulated Gambling (Matches are played with an entry fee of in-game currency, where the winner takes the pot.)"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,26 @@
+{
+    "developer_name": "[Developer Name]",
+    "games": [
+      {
+        "game_name": "Game A",
+        "app_store_url": "URL to the App Store page",
+        "rating_score": "e.g., 4.8",
+        "number_of_ratings": "e.g., 1.2M",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (with in-app purchases)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes/No (or Not explicitly confirmed)",
+          "achievements": "Yes/No (or Not explicitly confirmed)"
+        },
+        "content_description": {
+          "apple_age_rating": "e.g., 9+",
+          "violence": "Description/Mention (e.g., 'Infrequent/Mild Cartoon or Fantasy Violence')",
+          "nudity_sexual_content": "Description/Mention (e.g., 'None')",
+          "other_content_warnings": "e.g., 'Infrequent/Mild Profanity or Crude Humor'"
+        }
+      }
+
+    ]
+  }

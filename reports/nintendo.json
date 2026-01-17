@@ -1,0 +1,86 @@
+{
+    "developer_name": "Nintendo Co., Ltd.",
+    "note": "Nintendo's mobile titles are typically either 'Free-to-Start' with a one-time purchase to unlock the full game (Super Mario Run) or full Free-to-Play with Gacha/Lootbox mechanics (Mario Kart Tour, Fire Emblem Heroes). They generally feature minimal cartoon violence and are rated for younger audiences.",
+    "games": [
+      {
+        "game_name": "Super Mario Run",
+        "app_store_url": "https://apps.apple.com/us/app/super-mario-run/id1145275343",
+        "rating_score": "3.7",
+        "number_of_ratings": "75.2K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": false,
+          "price_usd": "Free to Download/Start. Full Game Unlock: $9.99 (One-time IAP)."
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (via Toad Rally and possibly Game Center)",
+          "achievements": "Yes (Integrated with Apple Game Center Achievements)"
+        },
+        "content_description": {
+          "apple_age_rating": "4+",
+          "violence": "None (or extremely mild fantasy violence, i.e., stomping a Goomba).",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "None"
+        }
+      },
+      {
+        "game_name": "Mario Kart Tour",
+        "app_store_url": "https://apps.apple.com/us/app/mariokart-tour/id1299881735",
+        "rating_score": "4.7",
+        "number_of_ratings": "4.1 Million (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases from $0.99 - $69.99, including 'Gold Pass' subscription)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (The game has its own competitive tier-based ranking/league system, which is sometimes mirrored to Game Center)",
+          "achievements": "Likely (Utilizes a mission/badge system that can integrate with Game Center)"
+        },
+        "content_description": {
+          "apple_age_rating": "4+",
+          "violence": "None (or mild cartoon violence/fantasy violence from item use)",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "Contains Simulated Gambling (due to the use of 'Pipes' which function as gacha/loot boxes)"
+        }
+      },
+      {
+        "game_name": "Fire Emblem Heroes",
+        "app_store_url": "https://apps.apple.com/us/app/fire-emblem-heroes/id1181774280",
+        "rating_score": "4.6",
+        "number_of_ratings": "127.3K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases from $0.99 - $79.99, featuring the 'Orb' currency for Gacha)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (for competitive modes like Arena)",
+          "achievements": "Likely"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence (Turn-based combat with stylized anime presentation)",
+          "nudity_sexual_content": "Infrequent/Mild Suggestive Themes (Due to some character designs/art)",
+          "other_content_warnings": "Contains Simulated Gambling (Gacha mechanic for summoning heroes)"
+        }
+      },
+      {
+        "game_name": "Animal Crossing: Pocket Camp",
+        "app_store_url": "https://apps.apple.com/us/app/animal-crossing-pocket-camp/id1179915619",
+        "rating_score": "4.5",
+        "number_of_ratings": "146.4K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases from $0.99 - $79.99, featuring 'Leaf Ticket' currency)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Unlikely (The game is non-competitive)",
+          "achievements": "Likely"
+        },
+        "content_description": {
+          "apple_age_rating": "4+",
+          "violence": "None",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "None"
+        }
+      }
+    ]
+  }

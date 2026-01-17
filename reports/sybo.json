@@ -1,0 +1,66 @@
+{
+    "developer_name": "Sybo Games ApS",
+    "note": "Sybo Games' catalog is highly focused on the 'Subway Surfers' franchise. All primary titles are Free-to-Play with extensive In-App Purchases and Ads.",
+    "games": [
+      {
+        "game_name": "Subway Surfers",
+        "app_store_url": "https://apps.apple.com/us/app/subway-surfers/id512939461",
+        "rating_score": "4.7",
+        "number_of_ratings": "Over 16 Million (Global Estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases from $0.99 - $99.99)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (Global/Friend High Score Leaderboards)",
+          "achievements": "Yes (Integrated with Apple Game Center Achievements)"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence (The game's theme revolves around 'running away' from an inspector, but injuries are mild/cartoonish).",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "Infrequent/Mild Profanity or Crude Humor (Rarely mentioned, but a general 9+ classification allows for it). The theme also involves 'illegal activity' (running on train tracks, graffiti), which is covered by the 9+ rating."
+        }
+      },
+      {
+        "game_name": "Blades of Brim",
+        "app_store_url": "https://apps.apple.com/us/app/blades-of-brim/id892120017",
+        "rating_score": "4.7",
+        "number_of_ratings": "78K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": true,
+          "price_usd": "Free (Offers In-App Purchases)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (Integrated with Apple Game Center)",
+          "achievements": "Yes (Integrated with Apple Game Center Achievements)"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence (Fantasy combat against cartoonish enemies with no blood or gore).",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "None"
+        }
+      },
+      {
+        "game_name": "Subway Surfers Tag (Apple Arcade)",
+        "app_store_url": "https://apps.apple.com/us/app/subway-surfers-tag/id1552550186",
+        "rating_score": "4.3",
+        "number_of_ratings": "3.3K (US App Store, estimate)",
+        "pricing": {
+          "is_free_to_play": false,
+          "price_usd": "Included with Apple Arcade Subscription ($6.99/month)"
+        },
+        "gamekit_integration": {
+          "leaderboards": "Yes (Integrated via Game Center for Apple Arcade)",
+          "achievements": "Yes (Integrated via Game Center Achievements for Apple Arcade)"
+        },
+        "content_description": {
+          "apple_age_rating": "9+",
+          "violence": "Infrequent/Mild Cartoon or Fantasy Violence",
+          "nudity_sexual_content": "None",
+          "other_content_warnings": "None. (Note: As an Apple Arcade title, it is typically ad-free and IAP-free, offering a 'cleaner' experience.)"
+        }
+      }
+    ]
+  }
