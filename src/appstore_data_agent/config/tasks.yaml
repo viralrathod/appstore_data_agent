@@ -1,31 +1,51 @@
-identify_developer_name:
+research_task:
   description: >
-    Given the indicative developer name '{indicative_developer_name}', identify the full and correct name as it appears on the Apple App Store webpages.
-    For example, if the input is "Nintenddo", the output should be "Nintendo Co., Ltd." as seen on the App Store page.
+    1. Take the input developer name '{developer_name}' and identify the closest official game developer name registered on the Apple App Store.
+    2. Find the official App Store URL for this developer's page.
+    3. Scrape the developer page to identify all published games.
+    4. For a selection of their most popular games (up to 5), scrape their individual App Store pages to collect:
+       - Official game name
+       - App Store URL
+       - Rating score
+       - Number of ratings
+       - Pricing (is it free to play, actual price)
+       - GameKit/Game Center integration (leaderboards, achievements)
+       - Content description (age rating, violence, nudity, etc.)
   expected_output: >
-    A string representing the full and correct game developer name on the Apple App Store, or "N/A" if not found.
-  agent: researcher
-
-find_developer_url:
-  description: >
-    Given the full and correct game developer name, find an Game Developer Apple App Store URL.
-    This URL will be used for the game information scraping task.
-  expected_output: >
-    A string representing an Apple App Store URL for the identified developer, or "N/A" if no URL is found.
-  agent: researcher
-
-scrape_game_info:
-  description: >
-    Given the full and correct game developer name AND an App Store URL the game developer, scrape all available game application information from the Apple App Store.
-    Generate just one CSV file: `game_center_games.csv` (all games including free to play as well as paid).
-  expected_output: >
-    A string indicating the success or failure of scraping and CSV file creation, including the name of the generated CSV file.
-  agent: researcher
+    A comprehensive collection of raw data for the identified developer and their top games.
+  agent: app_store_researcher
 
 reporting_task:
   description: >
-    Review the scraped game data from the generated CSV file (game_center_games.csv) and generate a comprehensive report.
-    The report should include an overview of the developer's games, key metrics (ratings, size, price, genre), and Game Center integration details (achievements, leaderboards).
+    Using the data collected by the researcher, generate a structured JSON report.
+    The report MUST follow the structure of this template:
+    {{
+        "developer_name": "[Official Developer Name]",
+        "games": [
+          {{
+            "game_name": "[Game Name]",
+            "app_store_url": "[URL]",
+            "rating_score": "[Score]",
+            "number_of_ratings": "[Count]",
+            "pricing": {{
+              "is_free_to_play": [true/false],
+              "price_usd": "[Price description]"
+            }},
+            "gamekit_integration": {{
+              "leaderboards": "[Yes/No/Details]",
+              "achievements": "[Yes/No/Details]"
+            }},
+            "content_description": {{
+              "apple_age_rating": "[Rating]",
+              "violence": "[Details]",
+              "nudity_sexual_content": "[Details]",
+              "other_content_warnings": "[Details]"
+            }}
+          }}
+        ]
+    }}
+    The final output must be ONLY the JSON object, formatted correctly.
   expected_output: >
-    A fully fledged report in markdown format (`report.md`) with the main topics, each with a full section of information, based on the analysis of the CSV files. Do not use '```' in the report.
-  agent: reporting_analyst
+    A valid JSON object representing the game developer report.
+  agent: report_generator
+

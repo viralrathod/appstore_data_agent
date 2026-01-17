@@ -1,29 +1,27 @@
 #!/usr/bin/env python
 import sys
-import warnings
-
-from datetime import datetime
-
-from appstore_data_agent.crew import AppstoreDataAgent
-
-warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
-
-# This main file is intended to be a way for you to run your
-# crew locally, so refrain from adding unnecessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
+from appstore_data_agent.crew import AppstoreDataAgentCrew
 
 def run():
     """
     Run the crew.
     """
+    # Example input: 'Voodo' or 'Nintendo'
+    developer_name = sys.argv[1] if len(sys.argv) > 1 else 'Voodoo'
+    
     inputs = {
-        'indicative_developer_name': 'Sybo',
-        'csv_file_path': 'game_center_games.csv',
-        'topic': 'Analyze the scraped data and provide a report on the games'
+        'developer_name': developer_name
     }
     
     try:
-        AppstoreDataAgent().crew().kickoff(inputs=inputs)
+        result = AppstoreDataAgentCrew().crew().kickoff(inputs=inputs)
+        print("\n\n########################")
+        print("## Final Report JSON: ##")
+        print("########################\n")
+        print(result)
     except Exception as e:
-        raise Exception(f"An error occurred while running the crew: {e}")
+        print(f"An error occurred while running the crew: {e}")
+
+if __name__ == "__main__":
+    run()
+
